@@ -20,7 +20,7 @@
 }
 
 .bar-container .logo img {
-  width: 90%;
+  width: 25%;
   height: auto;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .menu-container a:hover {
-  color: aqua;
+  color: #779677;
 }
 
 .menu-container ul li:last-child {
