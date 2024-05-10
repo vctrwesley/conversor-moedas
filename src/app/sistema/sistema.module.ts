@@ -7,6 +7,7 @@ import { PageConversaoComponent } from './page-conversao/page-conversao.componen
 import { PageHistoricoComponent } from './page-historico/page-historico.component';
 import { PageSobreComponent } from './page-sobre/page-sobre.component';
 import { PageMoedasComponent } from './page-moedas/page-moedas.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,10 @@ import { PageMoedasComponent } from './page-moedas/page-moedas.component';
     PageSobreComponent,
     PageMoedasComponent,
   ],
-  imports: [CommonModule, SistemaRoutingModule],
+  imports: [
+    CommonModule, 
+    SistemaRoutingModule,
+    MatSlideToggleModule
+  ],
 })
 export class SistemaModule {}

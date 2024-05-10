@@ -6,20 +6,24 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TemplateModule } from './template/template.module';
 import { SistemaModule } from './sistema/sistema.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     TemplateModule,
-    SistemaModule
+    SistemaModule,
+    MatSlideToggleModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
