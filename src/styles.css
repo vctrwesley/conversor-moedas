@@ -1,6 +1,11 @@
-body{
-    background-color: #E8E9E4;
-    font-family: 'DM Sans', sans-serif;
-    margin: 0;
-    padding: 0;
+body {
+  background-color: #e8e9e4;
+  font-family: "DM Sans", sans-serif;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
 }
