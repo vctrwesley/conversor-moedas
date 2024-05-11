@@ -1,0 +1,26 @@
+.banner{
+  background-image: url('/assets/imagem/banner.png');
+  width: 100%;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.banner-content h1 {
+  color: white;
+}
+
+.banner-content button {
+  background-color: #D79711;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}

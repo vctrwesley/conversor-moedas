@@ -1,0 +1,149 @@
+.footer {
+    display: flex;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+  }
+  
+  .footer__container {
+    width: 100%;
+    max-width: 1600px;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .footer__logo {
+    margin-right: 3rem;
+    margin-left: 3rem;
+  }
+
+  .footer__logo img {
+    width: 20%;
+  }
+  
+  .footer__menu {
+    display: flex;
+    background-color: transparent;
+    margin-bottom: 0.875rem;
+    margin-top: 0.875rem;
+    font-size: 14px;
+    justify-content: space-between;
+  }
+  
+  .contato {
+    margin-right: 32px;
+    margin-top: 0;
+  }
+
+  .title{
+    display: flex;
+    align-items: center;
+  }
+  
+  .contato p {
+    color: #D79711;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    margin-right: 0.2rem;
+  }
+  
+  .contato h1 {
+    color: #000;
+    font-size: 22px;
+    margin: 0;
+  }
+  
+  .contato ul {
+    display: flex;
+  }
+  
+  .contato ul li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contato img {
+    width: 15%;
+    margin: 0.25rem;
+  }
+  
+  .contato img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-copyright {
+    background-color: #121F16;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .footer-copyright span {
+    margin-left: 3rem;
+  }
+  
+  @media (max-width: 932px) {
+  
+    .footer__container {
+      text-align: end;
+      margin-top: 0;
+    }
+  
+    .footer__menu {
+      margin: 0;
+    }
+  
+    .footer_inf {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+  
+    .contato {
+      margin: 24px;
+    }
+  
+    .contato img {
+      width: 12%;
+      margin: 0.25rem;
+  }
+  
+    .footer__logo {
+      padding-left: 14px;
+    }
+  
+    .footer__logo img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .divide-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .footer-copyright {
+      margin-top: 0.5rem;
+      justify-content: center;
+    }
+  }
