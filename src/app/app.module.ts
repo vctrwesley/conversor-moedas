@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ExchangeRateService } from './services/exchange-rate.service';
 import { ExchangeService } from './services/exchange.service';
 import { HistoricoService } from './services/historico.service';
+import { MoedasService } from './services/moedas.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HistoricoService } from './services/historico.service';
     provideAnimationsAsync(),
     ExchangeRateService,
     ExchangeService,
-    HistoricoService
+    HistoricoService,
+    MoedasService
   ],
   bootstrap: [AppComponent]
 })

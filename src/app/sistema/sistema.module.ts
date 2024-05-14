@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ExchangeService } from '../services/exchange.service';
 import { HistoricoService } from '../services/historico.service';
+import { MoedasService } from '../services/moedas.service';
 
 import { SistemaRoutingModule } from './sistema-routing.module';
 import { PageHomeComponent } from './page-home/page-home.component';
@@ -45,7 +46,8 @@ import { MatTableModule } from '@angular/material/table';
   ],
   providers: [
     ExchangeService,
-    HistoricoService
+    HistoricoService,
+    MoedasService
   ]
 })
 export class SistemaModule {}
