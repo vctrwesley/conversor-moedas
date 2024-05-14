@@ -3,8 +3,6 @@
   justify-content: center;
   align-items: center;
   min-height: 80vh;
-  background-repeat: no-repeat;
-  background-size: cover;
   margin: 80px;
 }
 
@@ -74,7 +72,7 @@
   color: #f5f5f5;
 }
 
-.high-value-icon {
+.high-value {
   color: #465c45; 
   margin-left: 5px; 
   vertical-align: middle; 

@@ -3,17 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 80vh;
-  background-repeat: no-repeat;
-  background-size: cover;
   margin-top: 90px;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .container {
@@ -75,11 +65,12 @@ input[type="number"] {
   background-color: transparent;
   border-bottom: 2px solid #000;
   color: #000;
+  align-items: center;
 }
 
 .button-container {
   flex: 1;
-  margin: 10px;
+  margin: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,6 +78,7 @@ input[type="number"] {
 
 .button-container button {
   flex: 1;
+  height: 40px;
   margin: 0 5px;
   font-size: 16px;
   padding: 8px 12px;
@@ -138,6 +130,11 @@ div[ngIf] {
 span {
   font-size: 26px;
   color: #d79711;
+}
+
+.text-taxa{
+  color: #121f16;
+  padding-bottom: 14px;
 }
 
 @media screen and (max-width: 768px) {
