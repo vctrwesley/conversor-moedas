@@ -1,11 +1,66 @@
-<p>page-conversao works!</p>
-<p>page-conversao works!</p>
-<p>page-conversao works!</p>
-<p>page-conversao works!</p>
-<p>page-conversao works!</p>
-<p>page-conversao works!</p>
-<p>page-conversao works!</p>
-<p>page-conversao works!</p>
-<p>page-conversao works!</p>
-
-<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+<section class="convercao-section">
+    <div class="overlay"></div> 
+    <div class="container">
+      <h1 class="title">Eu quero converter</h1>
+      <form class="form-container" (submit)="convertCurrency()">
+  
+        <div class="entrada-01">
+          <p> De * </p>
+          <mat-form-field class="01">
+            <mat-select class="01"  [(ngModel)]="fromCurrency" name="fromCurrency">
+              <mat-option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="entrada-02">
+          <p> Para * </p>
+          <mat-form-field  class="02">
+            <mat-select  [(ngModel)]="toCurrency" name="toCurrency">
+              <mat-option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="quantia-03">
+          <p> Quantia * </p>
+          <mat-form-field class="03 mat-03">
+            <input matInput type="number" placeholder="Valor" [(ngModel)]="amount" name="amount" required>
+          </mat-form-field>
+        </div>
+      
+        <div class="button-container">
+          <button class="04 btn-04" mat-raised-button color="primary" type="submit">Converter</button>
+          <button class="05 btn-05" mat-raised-button color="warn" type="button" (click)="clearForm()">Limpar</button>
+        </div>
+      
+      </form>
+      <div class="converted-value" *ngIf="convertedAmount !== null">
+        <section class="conversion-result-area justify-content-center mt-4 row principal">
+          <p class="title--font-size align-self-center col-auto">
+            {{ amount }} {{ fromCurrency }}
+          </p>
+          <p class="title--font-size ml-3 mr-3 align-self-center col-auto">=</p>
+          <p class="title--font-size font--roboto-bold accent--color align-self-center col-auto">
+            <span> {{ convertedAmount | number }} {{ toCurrency }} </span>
+          </p>
+        </section>
+      
+        <section class="conversion-info-area justify-content-center row">
+          <p class="body-text--font-size no--margin align-self-center col-auto">
+            1 {{ fromCurrency }} =
+            {{ exchangeRate.conversion_rates[toCurrency] | number }}
+            {{ toCurrency }}
+          </p>
+      
+          <p class="w-100 no--margin align-self-center col-auto"></p>
+      
+          <p class="body-text--font-size no--margin align-self-center col-auto">
+            1 {{ toCurrency }} =
+            {{ (exchangeRate.conversion_rates[toCurrency]) | number }}
+            {{ fromCurrency }}
+          </p>
+        </section>
+      </div>    
+    </div>
+  </section>

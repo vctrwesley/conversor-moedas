@@ -1,1 +1,79 @@
-<p>page-historico works!</p>
+
+<section class="historico-section">
+    <div class="title-text">
+      <h1 class="title"> Meu Histórico </h1>
+    </div>
+    <div class="container">
+        <div class="table-container mat-elevation-z8">
+          <table mat-table [dataSource]="historico" #tabelaHistorico class="historico-table">
+    
+            <!-- Data -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef>Data da Conversão</th>
+              <td mat-cell *matCellDef="let conversao">{{ conversao.data | date: 'dd/MM/yyyy' }}</td>
+            </ng-container>
+    
+            <!-- Hora -->
+            <ng-container matColumnDef="hora">
+              <th mat-header-cell *matHeaderCellDef>Hora da Conversão</th>
+              <td mat-cell *matCellDef="let conversao">{{ conversao.data | date: 'HH:mm' }}</td>
+            </ng-container>
+    
+            <!-- Moeda de Origem -->
+            <ng-container matColumnDef="moedaOrigem">
+              <th mat-header-cell *matHeaderCellDef>Moeda de Origem</th>
+              <td mat-cell *matCellDef="let conversao">{{ conversao.moedaOrigem }}</td>
+            </ng-container>
+    
+            <!-- Valor da Entrada -->
+            <ng-container matColumnDef="valorEntrada">
+              <th mat-header-cell *matHeaderCellDef>Valor Informado</th>
+              <td mat-cell *matCellDef="let conversao">{{ conversao.valorEntrada | number }}</td>
+            </ng-container>
+    
+            <!-- Moeda de Destino -->
+            <ng-container matColumnDef="moedaDestino">
+              <th mat-header-cell *matHeaderCellDef>Moeda de Destino</th>
+              <td mat-cell *matCellDef="let conversao">{{ conversao.moedaDestino }}</td>
+            </ng-container>
+    
+            <!-- Resultado -->
+            <ng-container matColumnDef="valorSaida">
+              <th mat-header-cell *matHeaderCellDef>Resultado</th>
+              <td mat-cell *matCellDef="let conversao">{{ conversao.valorSaida | number }}</td>
+            </ng-container>
+    
+            <!-- Taxa -->
+            <ng-container matColumnDef="taxaConversao">
+              <th mat-header-cell *matHeaderCellDef>Taxa de Conversão</th>
+              <td mat-cell *matCellDef="let conversao">{{ conversao.taxaConversao | number }}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="valorSaidaIcon">
+              <th mat-header-cell *matHeaderCellDef>Valor de Saída</th>
+              <td mat-cell *matCellDef="let conversao">
+                <span>{{ conversao.valorSaida | number }}</span>
+                <mat-icon *ngIf="isValueOver10000(conversao.moedaDestino, conversao.valorSaida)" svgIcon="high-value" class="high-value-icon"></mat-icon>
+              </td>
+            </ng-container>
+  
+            <!-- delete -->
+            <ng-container matColumnDef="acao">
+              <th mat-header-cell *matHeaderCellDef>Ação</th>
+              <td mat-cell *matCellDef="let conversao">
+                <button mat-icon-button color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            
+          <tr mat-header-row *matHeaderRowDef="['data', 'hora', 'moedaOrigem', 'valorEntrada', 'moedaDestino', 'valorSaida', 'taxaConversao', 'acao']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['data', 'hora', 'moedaOrigem', 'valorEntrada', 'moedaDestino', 'valorSaida', 'taxaConversao', 'acao']"></tr>
+        </table>
+      </div>
+  
+      <button class="clear-btn" (click)="limparHistorico()">Limpar Histórico</button>
+    </div>
+    </section>
+    
+  
