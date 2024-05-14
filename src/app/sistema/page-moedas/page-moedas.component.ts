@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { MoedasService } from '../../services/moedas.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-page-moedas',
@@ -6,5 +10,5 @@ import { Component } from '@angular/core';
   styleUrl: './page-moedas.component.css'
 })
 export class PageMoedasComponent {
-
+  
 }

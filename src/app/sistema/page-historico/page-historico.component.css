@@ -1,0 +1,85 @@
+.historico-section {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  margin: 80px;
+}
+
+.title-text {
+  padding: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.title-text .title {
+    font-size: 36px;
+    color: #121f16;
+    margin-bottom: 14px;
+    margin-top: 48px;
+  }
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-top: 54px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.historico-table {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.historico-table th,
+.historico-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid var(--primary, #121f16);
+}
+
+.historico-table th {
+  background-color: #d79711;
+  color: #f5f5f5;
+}
+
+.historico-table tr {
+  background-color: #f5f5f5;
+}
+
+.clear-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: var(--primary, #121f16);
+  color: #f5f5f5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-btn:hover {
+  background-color: #465c45;
+  color: #f5f5f5;
+}
+
+.high-value {
+  color: #465c45; 
+  margin-left: 5px; 
+  vertical-align: middle; 
+}
+
+@media screen and (max-width: 768px) {
+  .clear-btn {
+    width: 100%;
+  }
+}
