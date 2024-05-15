@@ -72,6 +72,7 @@ export class PageConversaoComponent implements OnInit {
       this.ExchangeService.getExchangeRate(this.fromCurrency, this.toCurrency)
   .subscribe({
     next: (response) => {
+      console.log(response);
       if (response && response.conversion_rates && response.conversion_rates[this.toCurrency]) {
         this.exchangeRate = response;
         this.convertedAmount = this.amount * this.exchangeRate.conversion_rates[this.toCurrency];
