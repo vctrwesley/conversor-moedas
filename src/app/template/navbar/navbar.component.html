@@ -4,12 +4,11 @@
       <a class="logo navbar-brand" href="">
         <img src="assets/imagem/logovcoin.svg" alt="Logo" />
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
-        aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" (click)="openMenu()">
         <img src="assets/imagem/iconmenu.png" alt="menu lateral do mobile" width="25rem"/>
       </button>
     </div>
-    <div class="offcanvas offcanvas-end bg-color" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+    <div #menu class="offcanvas offcanvas-end bg-color" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
       <div class="offcanvas-header">
         <a class="offcanvas-title text-warning" id="offcanvasNavbarLabel">
         </a>
