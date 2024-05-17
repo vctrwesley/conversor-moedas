@@ -37,7 +37,7 @@ export class ExchangeService {
       const ret: ExchangeRate = {
         base: response.base_code,
         date: response.time_last_update_utc,
-        conversion_rates: {}
+        conversion_rates: response.conversion_rates
       };
       return ret;
     }));
@@ -46,12 +46,12 @@ export class ExchangeService {
   public getExchangeRate(fromCurrency: string, toCurrency: string): Observable<ExchangeRate> {
     const apiUrl = `${this.baseApiUrl}/pair/${fromCurrency}/${toCurrency}`;
     return this.http.get<LatestApiResponse>(apiUrl).pipe(map((response: LatestApiResponse) => {
-      const retorno: ExchangeRate = {
+      const ret: ExchangeRate = {
         base: response.base_code,
         date: response.time_last_update_utc,
-        conversion_rates: {}
+        conversion_rates: response.conversion_rates
       };
-      return retorno;
+      return ret;
     }));
   }
   
