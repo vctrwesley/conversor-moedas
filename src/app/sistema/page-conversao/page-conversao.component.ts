@@ -21,7 +21,7 @@ interface Conversao {
 })
 export class PageConversaoComponent implements OnInit {
 
-  currencies!: string[]; 
+  currencies: string[] = []; 
   fromCurrency!: string; 
   toCurrency!: string; 
   amount!: number; 
@@ -55,8 +55,6 @@ export class PageConversaoComponent implements OnInit {
         next: (response) => {
           if (response.conversion_rates) {
             this.currencies = Object.keys(response.conversion_rates);
-            this.fromCurrency = 'BRL';
-            this.toCurrency = 'USD';
           } else {
             console.error('conversion_rates não encontrado na resposta');
           }
