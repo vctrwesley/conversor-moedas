@@ -68,34 +68,34 @@ export class PageConversaoComponent implements OnInit {
   }
 
   convertCurrency() {
-    if (this.amount && this.fromCurrency && this.toCurrency) {
-      this.ExchangeService.getExchangeRate(this.fromCurrency, this.toCurrency)
-  .subscribe({
-    next: (response) => {
-      console.log(response);
-      if (response && response.conversion_rates && response.conversion_rates[this.toCurrency]) {
-        this.exchangeRate = response;
-        this.convertedAmount = this.amount * this.exchangeRate.conversion_rates[this.toCurrency];
-        this.isValueOver10000 = this.checkValueOver10000(this.toCurrency, this.convertedAmount);
+  if (this.amount && this.fromCurrency && this.toCurrency) {
+    this.ExchangeService.getExchangeRate(this.fromCurrency, this.toCurrency)
+.subscribe({
+  next: (response) => {
+    console.log(response);
+    if (response && response.conversion_rates && response.conversion_rates[this.toCurrency]) {
+      this.exchangeRate = response;
+      this.convertedAmount = this.amount * this.exchangeRate.conversion_rates[this.toCurrency];
+      this.isValueOver10000 = this.checkValueOver10000(this.toCurrency, this.convertedAmount);
 
-         console.log(`Amount: ${this.amount}`);
-         console.log(`Exchange Rate: ${this.exchangeRate.conversion_rates[this.toCurrency]}`);
-         console.log(`Converted Amount: ${this.convertedAmount}`);
+       console.log(`Amount: ${this.amount}`);
+       console.log(`Exchange Rate: ${this.exchangeRate.conversion_rates[this.toCurrency]}`);
+       console.log(`Converted Amount: ${this.convertedAmount}`);
 
-        const conversao = this.createConversaoObject();
-        this.historicoService.adicionarConversao(conversao);
-      } else {
-        this.handleError("Invalid API response or missing exchange rate data.");
-      }
-    },
-    error: (error) => {
-      console.error(error);
-    }
-  });
+      const conversao = this.createConversaoObject();
+      this.historicoService.adicionarConversao(conversao);
     } else {
-      this.convertedAmount = 0;
+      this.handleError("Invalid API response or missing exchange rate data.");
     }
+  },
+  error: (error) => {
+    console.error(error);
   }
+});
+  } else {
+    this.convertedAmount = 0;
+  }
+}
   
   createConversaoObject(): Conversao {
     return {
