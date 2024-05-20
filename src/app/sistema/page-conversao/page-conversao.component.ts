@@ -22,8 +22,8 @@ interface Conversao {
 export class PageConversaoComponent implements OnInit {
 
   currencies: string[] = []; 
-  fromCurrency!: string; 
-  toCurrency!: string; 
+  fromCurrency: string = 'BRL'; 
+  toCurrency: string = 'USD'; 
   amount!: number; 
   convertedAmount: number = 0;
   exchangeRates: ExchangeRates = {
@@ -109,7 +109,6 @@ export class PageConversaoComponent implements OnInit {
   handleError(error: any) {
     console.error(error);
     this.convertedAmount = 0;
-    // Adicione aqui o código para mostrar a mensagem de erro ao usuário
   }
   
   clearForm() {
@@ -120,7 +119,7 @@ export class PageConversaoComponent implements OnInit {
 
   // Função para verificar se o valor convertido é maior que 10000 dólares
   checkValueOver10000(currency: string, amount: number) {
-    if (amount > 10000) {
+    if (amount > 1000) {
       return true;
     } else {
       return false;

@@ -21,7 +21,7 @@ export class PageHistoricoComponent {
   ) {
     this.matIconRegistry.addSvgIcon(
       'high-value',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/imagem/valor.svg')
     );
   }
 

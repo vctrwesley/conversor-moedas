@@ -82,4 +82,16 @@
   .clear-btn {
     width: 100%;
   }
+
+  .title-text .title {
+    margin-top: 0;
+  }
+
+  .historico-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+  }
 }
