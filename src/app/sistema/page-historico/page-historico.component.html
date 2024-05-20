@@ -40,7 +40,9 @@
             <!-- Resultado -->
             <ng-container matColumnDef="valorSaida">
               <th mat-header-cell *matHeaderCellDef>Resultado</th>
-              <td mat-cell *matCellDef="let conversao">{{ conversao.valorSaida | number }}</td>
+              <td mat-cell *matCellDef="let conversao">{{ conversao.valorSaida | number }}
+                <mat-icon *ngIf="conversao.valorSaida > 1000" svgIcon="high-value"></mat-icon>
+              </td>
             </ng-container>
     
             <!-- Taxa -->
