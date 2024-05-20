@@ -5,7 +5,13 @@ import { Observable, map } from 'rxjs';
 export interface ExchangeRate {
   base: string;
   date: string;
-  conversion_rates: { [key: string]: number };
+  conversion_rates: { [key: string]: number }; 
+}
+
+export interface ExchangeRates {
+  base: string;
+  date: string;
+  conversion_rate: number; 
 }
 
 interface LatestApiResponse {
@@ -34,6 +40,7 @@ export class ExchangeService {
   public getAllCurrencies(currencyBase: string ='BRL'): Observable<ExchangeRate> {
     const apiUrl = this.baseApiUrl + '/latest/' + currencyBase;
     return this.http.get<LatestApiResponse>(apiUrl).pipe(map((response: LatestApiResponse) => {
+      console.log(response);
       const ret: ExchangeRate = {
         base: response.base_code,
         date: response.time_last_update_utc,
@@ -43,14 +50,15 @@ export class ExchangeService {
     }));
   }
 
-  public getExchangeRate(fromCurrency: string, toCurrency: string): Observable<ExchangeRate> {
+  public getExchangeRate(fromCurrency: string, toCurrency: string): Observable<ExchangeRates> {
     const apiUrl = `${this.baseApiUrl}/pair/${fromCurrency}/${toCurrency}`;
-    return this.http.get<LatestApiResponse>(apiUrl).pipe(map((response: LatestApiResponse) => {
-      const ret: ExchangeRate = {
+    return this.http.get<LatestApiResponse>(apiUrl).pipe(map((response: any) => {
+      const ret: ExchangeRates = {
         base: response.base_code,
         date: response.time_last_update_utc,
-        conversion_rates: response.conversion_rates
+        conversion_rate: response.conversion_rate
       };
+      console.log(ret);
       return ret;
     }));
   }
