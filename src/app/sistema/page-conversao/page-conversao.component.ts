@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExchangeService, ExchangeRate  } from '../../services/exchange.service';
+import { ExchangeService, ExchangeRate, ExchangeRates  } from '../../services/exchange.service';
 import { HistoricoService } from '../../services/historico.service';
 
 import { MatIconRegistry } from '@angular/material/icon';
@@ -26,10 +26,10 @@ export class PageConversaoComponent implements OnInit {
   toCurrency!: string; 
   amount!: number; 
   convertedAmount: number = 0;
-  exchangeRate: ExchangeRate = {
+  exchangeRates: ExchangeRates = {
     base: '',
     date: '',
-    conversion_rates: {}
+    conversion_rate: 0
   };
   isValueOver10000: boolean = false;
 
@@ -71,13 +71,13 @@ export class PageConversaoComponent implements OnInit {
 .subscribe({
   next: (response) => {
     console.log(response);
-    if (response && response.conversion_rates && response.conversion_rates[this.toCurrency]) {
-      this.exchangeRate = response;
-      this.convertedAmount = this.amount * this.exchangeRate.conversion_rates[this.toCurrency];
+    if (response && response.conversion_rate) {
+      this.exchangeRates = response;
+      this.convertedAmount = this.amount * this.exchangeRates.conversion_rate;
       this.isValueOver10000 = this.checkValueOver10000(this.toCurrency, this.convertedAmount);
 
        console.log(`Amount: ${this.amount}`);
-       console.log(`Exchange Rate: ${this.exchangeRate.conversion_rates[this.toCurrency]}`);
+       console.log(`Exchange Rate: ${this.exchangeRates.conversion_rate}`);
        console.log(`Converted Amount: ${this.convertedAmount}`);
 
       const conversao = this.createConversaoObject();
@@ -102,7 +102,7 @@ export class PageConversaoComponent implements OnInit {
       valorEntrada: this.amount,
       moedaDestino: this.toCurrency,
       valorSaida: this.convertedAmount,
-      taxaConversao: this.exchangeRate.conversion_rates[this.toCurrency]
+      taxaConversao: this.exchangeRates.conversion_rate
     };
   }
   
