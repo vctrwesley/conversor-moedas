@@ -40,7 +40,6 @@ export class ExchangeService {
   public getAllCurrencies(currencyBase: string ='BRL'): Observable<ExchangeRate> {
     const apiUrl = this.baseApiUrl + '/latest/' + currencyBase;
     return this.http.get<LatestApiResponse>(apiUrl).pipe(map((response: LatestApiResponse) => {
-      console.log(response);
       const ret: ExchangeRate = {
         base: response.base_code,
         date: response.time_last_update_utc,
@@ -58,7 +57,6 @@ export class ExchangeService {
         date: response.time_last_update_utc,
         conversion_rate: response.conversion_rate
       };
-      console.log(ret);
       return ret;
     }));
   }

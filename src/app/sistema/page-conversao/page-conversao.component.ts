@@ -119,7 +119,7 @@ export class PageConversaoComponent implements OnInit {
 
   // Função para verificar se o valor convertido é maior que 10000 dólares
   checkValueOver10000(currency: string, amount: number) {
-    if (amount > 10000) {
+    if (amount > 1000) {
       return true;
     } else {
       return false;
